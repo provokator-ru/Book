@@ -15,11 +15,19 @@ namespace Book
     
     public partial class BookBaseEntities : DbContext
     {
-        public BookBaseEntities()
-            : base("name=BookBaseEntities")
+        private static BookBaseEntities _context;
+        public BookBaseEntities() : base("name=BookBaseEntities")
         {
+
         }
-    
+
+        public static BookBaseEntities GetContext()
+        {
+            if (_context == null)
+                _context = new BookBaseEntities();
+            return _context;
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

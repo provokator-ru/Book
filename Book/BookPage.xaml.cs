@@ -23,11 +23,52 @@ namespace Book
         public BookPage()
         {
             InitializeComponent();
+            //DGridBook.ItemsSource = BookBaseEntities.GetContext().BookTests.ToList();
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddEditPage());
+
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as BookTest));
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEditPage(null));
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var BooktesstForRemoving = DGridBook.SelectedItems.Cast<BookTest>().ToList();
+            if (MessageBox.Show($"Вы точно хотите удалить следущие {BooktesstForRemoving.Count()} элементов?", "Внимание",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    BookBaseEntities.GetContext().BookTests.RemoveRange(BooktesstForRemoving);
+                    BookBaseEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные удалены!");
+                    DGridBook.ItemsSource = BookBaseEntities.GetContext().BookTests.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                BookBaseEntities.GetContext().ChangeTracker.Entries().ToList();
+                DGridBook.ItemsSource = BookBaseEntities.GetContext().BookTests.ToList();
+            }
         }
     }
 }

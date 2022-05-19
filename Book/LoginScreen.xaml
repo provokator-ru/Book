@@ -11,10 +11,10 @@
             <Label Content="Login" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
             <Separator></Separator>
             <Label Content="UserName" Foreground="White"/>
-            <TextBox Name="txtUsername" Background="#545d6a" Foreground="White" FontSize="18"/>
+            <TextBox Name="txtUsername" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,5" Width="212"/>
             <Label Content="Password" Foreground="White"/>
             <PasswordBox Name="txtPassword" Background="#545d6a" Foreground="White" FontSize="18"/>
-            <Button Name="btnSubmit" Click="btnSubmit_Click" Content="Submit" Margin="60 10" Background="#545d6a" Foreground="White" FontSize="18"/>
+            <Button x:Name="btnSubmit" Click="btnSubmit_Click" Content="Submit" Margin="60,10,52,10" Background="#545d6a" Foreground="White" FontSize="18" Width="Auto"/>
         </StackPanel>
     </Border>
 </Window>

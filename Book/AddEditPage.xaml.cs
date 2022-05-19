@@ -20,9 +20,38 @@ namespace Book
     /// </summary>
     public partial class AddEditPage : Page
     {
-        public AddEditPage()
+        private BookTest _currentBook = new BookTest();
+        public AddEditPage(BookTest selectedBook)
         {
             InitializeComponent();
+            if (selectedBook != null)
+                _currentBook = selectedBook;
+            DataContext = _currentBook;
+        }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder errors = new StringBuilder();
+
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+            if (_currentBook.Id == 0)
+            {
+                BookBaseEntities.GetContext().BookTests.Add(_currentBook);
+            }
+            try
+            {
+                BookBaseEntities.GetContext().SaveChanges();
+                MessageBox.Show("Информация сохраненa!!!");
+                Manager.MainFrame.GoBack();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }
