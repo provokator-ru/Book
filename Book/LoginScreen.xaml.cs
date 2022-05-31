@@ -47,7 +47,7 @@ namespace Book
                 }
                 else
                 {
-                    MessageBox.Show("Username or password is incorrect.");
+                    MessageBox.Show("Имя пользователя или пароль введены не правильно.");
                 }
             }
             catch (Exception ex)

@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Book"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="900">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Список Курсов" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="White"/>
+        <TextBlock Text="Список Книг" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="White"/>
         <Grid Background="#8A2BE2" Panel.ZIndex="-2"></Grid>
         <Grid Grid.Row="2" Background="#8A2BE2" />
         <Frame NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered" Grid.Row="1" Name="MainFrame"></Frame>
-        <Button Content="Back" Name="BtnBack" Width="175" Height="30" HorizontalAlignment="Right" Margin="5" Click="BtnBack_Click"></Button>
+        <Button Content="Назад" Name="BtnBack" Width="175" Height="30" HorizontalAlignment="Right" Margin="5" Click="BtnBack_Click"></Button>
     </Grid>
 </Window>
