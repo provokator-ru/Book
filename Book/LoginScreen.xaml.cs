@@ -33,10 +33,10 @@ namespace Book
             {
                 if (sqlCon.State == ConnectionState.Closed)
                     sqlCon.Open();
-                String query = "SELECT COUNT(1) FROM tbUser WHERE Username=@Username AND Password=@Password";
+                String query = "SELECT COUNT(1) FROM Teacher WHERE Login=@Login AND Password=@Password";
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                 sqlCmd.CommandType = CommandType.Text;
-                sqlCmd.Parameters.AddWithValue("@Username", txtUsername.Text);
+                sqlCmd.Parameters.AddWithValue("@Login", txtUsername.Text);
                 sqlCmd.Parameters.AddWithValue("@Password", txtPassword.Password);
                 int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
                 if (count == 1)

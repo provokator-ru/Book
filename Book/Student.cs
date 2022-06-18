@@ -12,32 +12,22 @@ namespace Book
     using System;
     using System.Collections.Generic;
     
-    public partial class BookTest
+    public partial class Student
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public BookTest()
+        public Student()
         {
-            this.Student = new HashSet<Student>();
-            this.Teacher = new HashSet<Teacher>();
+            this.BookTest = new HashSet<BookTest>();
         }
     
-        public int ID { get; set; }
-        public string Name_Book { get; set; }
-        public int Publishing_Year { get; set; }
-        public string Place_of_publishing { get; set; }
-        public string Publisher_Name { get; set; }
-        public int ID_Autor { get; set; }
-        public string Obrazov_Ychrezd { get; set; }
-        public int ID_Teacher { get; set; }
-        public int ID_Predmet { get; set; }
         public int ID_Student { get; set; }
-        public string Text { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Course { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
     
-        public virtual Autor Autor { get; set; }
-        public virtual Predmet Predmet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student> Student { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Teacher> Teacher { get; set; }
+        public virtual ICollection<BookTest> BookTest { get; set; }
     }
 }

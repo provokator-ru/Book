@@ -16,11 +16,12 @@ namespace Book
     public partial class BookBaseEntities : DbContext
     {
         private static BookBaseEntities _context;
-        public BookBaseEntities() : base("name=BookBaseEntities")
+
+        public BookBaseEntities()
+            : base("name=BookBaseEntities")
         {
-
         }
-
+    
         public static BookBaseEntities GetContext()
         {
             if (_context == null)
@@ -33,8 +34,12 @@ namespace Book
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<BookTest> BookTests { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<tbUser> tbUsers { get; set; }
+        public virtual DbSet<Autor> Autor { get; set; }
+        public virtual DbSet<BookTest> BookTest { get; set; }
+        public virtual DbSet<Predmet> Predmet { get; set; }
+        public virtual DbSet<So_Autor> So_Autor { get; set; }
+        public virtual DbSet<Student> Student { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Teacher> Teacher { get; set; }
     }
 }

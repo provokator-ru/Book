@@ -4,10 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c46399922e494264a841c841ac4461fc" Name="Diagram1">
-        <EntityTypeShape EntityType="BookBaseModel.BookTest" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookBaseModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookBaseModel.tbUser" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+      <Diagram DiagramId="56df91c221f44059958b6b9f1e294402" Name="Diagram1">
+        <EntityTypeShape EntityType="BookBaseModel.Autor" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookBaseModel.BookTest" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookBaseModel.Predmet" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookBaseModel.So_Autor" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookBaseModel.Student" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookBaseModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookBaseModel.Teacher" Width="1.5" PointX="7.5" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="BookBaseModel.FK_Autor_So_Autor" ManuallyRouted="false" />
+        <AssociationConnector Association="BookBaseModel.FK_Book_Autor1" ManuallyRouted="false" />
+        <AssociationConnector Association="BookBaseModel.FK_Book_Predmet" ManuallyRouted="false" />
+        <AssociationConnector Association="BookBaseModel.Book_of_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="BookBaseModel.Book_of_Teacher" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

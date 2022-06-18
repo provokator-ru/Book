@@ -38,9 +38,9 @@ namespace Book
                 MessageBox.Show(errors.ToString());
                 return;
             }
-            if (_currentBook.Id == 0)
+            if (_currentBook.ID == 0)
             {
-                BookBaseEntities.GetContext().BookTests.Add(_currentBook);
+                BookBaseEntities.GetContext().BookTest.Add(_currentBook);
             }
             try
             {
