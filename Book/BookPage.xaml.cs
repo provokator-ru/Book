@@ -50,10 +50,10 @@ namespace Book
             {
                 try
                 {
-                    BookBaseEntities.GetContext().BookTest.RemoveRange(BooktesstForRemoving);
-                    BookBaseEntities.GetContext().SaveChanges();
+                    BookBaseEntities1.GetContext().BookTest.RemoveRange(BooktesstForRemoving);
+                    BookBaseEntities1.GetContext().SaveChanges();
                     MessageBox.Show("Данные удалены!");
-                    DGridBook.ItemsSource = BookBaseEntities.GetContext().BookTest.ToList();
+                    DGridBook.ItemsSource = BookBaseEntities1.GetContext().BookTest.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -66,8 +66,8 @@ namespace Book
         {
             if (Visibility == Visibility.Visible)
             {
-                BookBaseEntities.GetContext().ChangeTracker.Entries().ToList();
-                DGridBook.ItemsSource = BookBaseEntities.GetContext().BookTest.ToList();
+                BookBaseEntities1.GetContext().ChangeTracker.Entries().ToList();
+                DGridBook.ItemsSource = BookBaseEntities1.GetContext().BookTest.ToList();
             }
         }
     }

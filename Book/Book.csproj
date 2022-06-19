@@ -68,22 +68,22 @@
       <DependentUpon>AddEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Autor.cs">
-      <DependentUpon>BaseModel.tt</DependentUpon>
+      <DependentUpon>BookBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="BaseModel.Context.cs">
+    <Compile Include="BookBase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BaseModel.Context.tt</DependentUpon>
+      <DependentUpon>BookBase.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="BaseModel.cs">
+    <Compile Include="BookBase.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BaseModel.tt</DependentUpon>
+      <DependentUpon>BookBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="BaseModel.Designer.cs">
+    <Compile Include="BookBase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BaseModel.edmx</DependentUpon>
+      <DependentUpon>BookBase.edmx</DependentUpon>
     </Compile>
     <Compile Include="BookPage.xaml.cs">
       <DependentUpon>BookPage.xaml</DependentUpon>
@@ -92,29 +92,29 @@
       <DependentUpon>BookPageStudent.xaml</DependentUpon>
     </Compile>
     <Compile Include="BookTest.cs">
-      <DependentUpon>BaseModel.tt</DependentUpon>
+      <DependentUpon>BookBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />
     <Compile Include="PageStudent.xaml.cs">
       <DependentUpon>PageStudent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Predmet.cs">
-      <DependentUpon>BaseModel.tt</DependentUpon>
+      <DependentUpon>BookBase.tt</DependentUpon>
     </Compile>
     <Compile Include="ProsmotrPageStudent.xaml.cs">
       <DependentUpon>ProsmotrPageStudent.xaml</DependentUpon>
     </Compile>
     <Compile Include="So_Autor.cs">
-      <DependentUpon>BaseModel.tt</DependentUpon>
+      <DependentUpon>BookBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Student.cs">
-      <DependentUpon>BaseModel.tt</DependentUpon>
+      <DependentUpon>BookBase.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>BaseModel.tt</DependentUpon>
+      <DependentUpon>BookBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Teacher.cs">
-      <DependentUpon>BaseModel.tt</DependentUpon>
+      <DependentUpon>BookBase.tt</DependentUpon>
     </Compile>
     <Page Include="AddEditPage.xaml">
       <SubType>Designer</SubType>
@@ -174,12 +174,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="BaseModel.edmx">
+    <EntityDeploy Include="BookBase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BaseModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>BookBase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="BaseModel.edmx.diagram">
-      <DependentUpon>BaseModel.edmx</DependentUpon>
+    <None Include="BookBase.edmx.diagram">
+      <DependentUpon>BookBase.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -194,15 +194,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BaseModel.Context.tt">
+    <Content Include="BookBase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BaseModel.edmx</DependentUpon>
-      <LastGenOutput>BaseModel.Context.cs</LastGenOutput>
+      <DependentUpon>BookBase.edmx</DependentUpon>
+      <LastGenOutput>BookBase.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="BaseModel.tt">
+    <Content Include="BookBase.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BaseModel.edmx</DependentUpon>
-      <LastGenOutput>BaseModel.cs</LastGenOutput>
+      <DependentUpon>BookBase.edmx</DependentUpon>
+      <LastGenOutput>BookBase.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

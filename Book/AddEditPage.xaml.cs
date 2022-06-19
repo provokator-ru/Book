@@ -41,11 +41,11 @@ namespace Book
             }
             if (_currentBook.ID == 0)
             {
-                BookBaseEntities.GetContext().BookTest.Add(_currentBook);
+                BookBaseEntities1.GetContext().BookTest.Add(_currentBook);
             }
             try
             {
-                BookBaseEntities.GetContext().SaveChanges();
+                BookBaseEntities1.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохраненa!!!");
                 Manager.MainFrame.GoBack();
             }

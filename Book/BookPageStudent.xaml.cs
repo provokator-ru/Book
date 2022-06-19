@@ -39,8 +39,8 @@ namespace Book
         {
             if (Visibility == Visibility.Visible)
             {
-                BookBaseEntities.GetContext().ChangeTracker.Entries().ToList();
-                DGridBook.ItemsSource = BookBaseEntities.GetContext().BookTest.ToList();
+                BookBaseEntities1.GetContext().ChangeTracker.Entries().ToList();
+                DGridBook.ItemsSource = BookBaseEntities1.GetContext().BookTest.ToList();
             }
         }
     }

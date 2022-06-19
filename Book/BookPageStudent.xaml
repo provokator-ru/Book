@@ -17,8 +17,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название книги" Binding="{Binding Name_Book}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Год издания" Binding="{Binding Publishing_Year}" Width="150"></DataGridTextColumn>
-                <DataGridTextColumn Header="Автор" Binding="{Binding ID_Autor}" Width="150"></DataGridTextColumn>
-                <DataGridTextColumn Header="Преподаватель" Binding="{Binding ID_Teacher}" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn Header="Автор" Binding="{Binding Autor.Name}" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn Header="Преподаватель" Binding="{Binding Teacher.Name}" Width="150"></DataGridTextColumn>
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

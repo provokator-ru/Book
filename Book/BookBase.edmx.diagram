@@ -4,19 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="56df91c221f44059958b6b9f1e294402" Name="Diagram1">
+      <Diagram DiagramId="32ca47b9dcfc4eefb9ec05e5d14680c0" Name="Diagram1">
         <EntityTypeShape EntityType="BookBaseModel.Autor" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookBaseModel.BookTest" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookBaseModel.BookTest" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BookBaseModel.Predmet" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BookBaseModel.So_Autor" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookBaseModel.Student" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookBaseModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookBaseModel.Student" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookBaseModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="BookBaseModel.Teacher" Width="1.5" PointX="7.5" PointY="4.875" IsExpanded="true" />
         <AssociationConnector Association="BookBaseModel.FK_Autor_So_Autor" ManuallyRouted="false" />
         <AssociationConnector Association="BookBaseModel.FK_Book_Autor1" ManuallyRouted="false" />
         <AssociationConnector Association="BookBaseModel.FK_Book_Predmet" ManuallyRouted="false" />
-        <AssociationConnector Association="BookBaseModel.Book_of_Student" ManuallyRouted="false" />
-        <AssociationConnector Association="BookBaseModel.Book_of_Teacher" ManuallyRouted="false" />
+        <AssociationConnector Association="BookBaseModel.FK_BookTest_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="BookBaseModel.FK_BookTest_Teacher" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

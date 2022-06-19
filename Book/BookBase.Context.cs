@@ -13,19 +13,18 @@ namespace Book
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BookBaseEntities : DbContext
+    public partial class BookBaseEntities1 : DbContext
     {
-        private static BookBaseEntities _context;
-
-        public BookBaseEntities()
-            : base("name=BookBaseEntities")
+        private static BookBaseEntities1 _context;
+        public BookBaseEntities1()
+            : base("name=BookBaseEntities1")
         {
         }
-    
-        public static BookBaseEntities GetContext()
+
+        public static BookBaseEntities1 GetContext()
         {
             if (_context == null)
-                _context = new BookBaseEntities();
+                _context = new BookBaseEntities1();
             return _context;
         }
 

@@ -15,22 +15,6 @@
           <Property Name="Patronymic" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="ID_So_Autor" Type="int" />
         </EntityType>
-        <EntityType Name="Book_of_Student">
-          <Key>
-            <PropertyRef Name="ID_Book" />
-            <PropertyRef Name="ID_Student" />
-          </Key>
-          <Property Name="ID_Book" Type="int" Nullable="false" />
-          <Property Name="ID_Student" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Book_of_Teacher">
-          <Key>
-            <PropertyRef Name="ID_Book" />
-            <PropertyRef Name="ID_Teacher" />
-          </Key>
-          <Property Name="ID_Book" Type="int" Nullable="false" />
-          <Property Name="ID_Teacher" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-        </EntityType>
         <EntityType Name="BookTest">
           <Key>
             <PropertyRef Name="ID" />
@@ -120,54 +104,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Book_of_Student_Book">
-          <End Role="BookTest" Type="Self.BookTest" Multiplicity="1" />
-          <End Role="Book_of_Student" Type="Self.Book_of_Student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BookTest">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Book_of_Student">
-              <PropertyRef Name="ID_Book" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Book_of_Student_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
-          <End Role="Book_of_Student" Type="Self.Book_of_Student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Student">
-              <PropertyRef Name="ID_Student" />
-            </Principal>
-            <Dependent Role="Book_of_Student">
-              <PropertyRef Name="ID_Student" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Book_of_Teacher_Book">
-          <End Role="BookTest" Type="Self.BookTest" Multiplicity="1" />
-          <End Role="Book_of_Teacher" Type="Self.Book_of_Teacher" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BookTest">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Book_of_Teacher">
-              <PropertyRef Name="ID_Book" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Book_of_Teacher_Teacher">
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
-          <End Role="Book_of_Teacher" Type="Self.Book_of_Teacher" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teacher">
-              <PropertyRef Name="ID_Teacher" />
-            </Principal>
-            <Dependent Role="Book_of_Teacher">
-              <PropertyRef Name="ID_Teacher" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Book_Predmet">
           <End Role="Predmet" Type="Self.Predmet" Multiplicity="1" />
           <End Role="BookTest" Type="Self.BookTest" Multiplicity="*" />
@@ -180,10 +116,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_BookTest_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="BookTest" Type="Self.BookTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID_Student" />
+            </Principal>
+            <Dependent Role="BookTest">
+              <PropertyRef Name="ID_Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookTest_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="BookTest" Type="Self.BookTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="ID_Teacher" />
+            </Principal>
+            <Dependent Role="BookTest">
+              <PropertyRef Name="ID_Teacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище BookBaseModelContainer">
           <EntitySet Name="Autor" EntityType="Self.Autor" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Book_of_Student" EntityType="Self.Book_of_Student" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Book_of_Teacher" EntityType="Self.Book_of_Teacher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BookTest" EntityType="Self.BookTest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Predmet" EntityType="Self.Predmet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="So_Autor" EntityType="Self.So_Autor" Schema="dbo" store:Type="Tables" />
@@ -198,24 +156,16 @@
             <End Role="Autor" EntitySet="Autor" />
             <End Role="BookTest" EntitySet="BookTest" />
           </AssociationSet>
-          <AssociationSet Name="FK_Book_of_Student_Book" Association="Self.FK_Book_of_Student_Book">
-            <End Role="BookTest" EntitySet="BookTest" />
-            <End Role="Book_of_Student" EntitySet="Book_of_Student" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Book_of_Student_Student" Association="Self.FK_Book_of_Student_Student">
-            <End Role="Student" EntitySet="Student" />
-            <End Role="Book_of_Student" EntitySet="Book_of_Student" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Book_of_Teacher_Book" Association="Self.FK_Book_of_Teacher_Book">
-            <End Role="BookTest" EntitySet="BookTest" />
-            <End Role="Book_of_Teacher" EntitySet="Book_of_Teacher" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Book_of_Teacher_Teacher" Association="Self.FK_Book_of_Teacher_Teacher">
-            <End Role="Teacher" EntitySet="Teacher" />
-            <End Role="Book_of_Teacher" EntitySet="Book_of_Teacher" />
-          </AssociationSet>
           <AssociationSet Name="FK_Book_Predmet" Association="Self.FK_Book_Predmet">
             <End Role="Predmet" EntitySet="Predmet" />
+            <End Role="BookTest" EntitySet="BookTest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookTest_Student" Association="Self.FK_BookTest_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="BookTest" EntitySet="BookTest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookTest_Teacher" Association="Self.FK_BookTest_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
             <End Role="BookTest" EntitySet="BookTest" />
           </AssociationSet>
         </EntityContainer>
@@ -253,8 +203,8 @@
           <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Autor" Relationship="Self.FK_Book_Autor1" FromRole="BookTest" ToRole="Autor" />
           <NavigationProperty Name="Predmet" Relationship="Self.FK_Book_Predmet" FromRole="BookTest" ToRole="Predmet" />
-          <NavigationProperty Name="Student" Relationship="Self.Book_of_Student" FromRole="BookTest" ToRole="Student" />
-          <NavigationProperty Name="Teacher" Relationship="Self.Book_of_Teacher" FromRole="BookTest" ToRole="Teacher" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_BookTest_Student" FromRole="BookTest" ToRole="Student" />
+          <NavigationProperty Name="Teacher" Relationship="Self.FK_BookTest_Teacher" FromRole="BookTest" ToRole="Teacher" />
         </EntityType>
         <EntityType Name="Predmet">
           <Key>
@@ -284,7 +234,7 @@
           <Property Name="Course" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="BookTest" Relationship="Self.Book_of_Student" FromRole="Student" ToRole="BookTest" />
+          <NavigationProperty Name="BookTest" Relationship="Self.FK_BookTest_Student" FromRole="Student" ToRole="BookTest" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -307,7 +257,7 @@
           <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Speciality" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="BookTest" Relationship="Self.Book_of_Teacher" FromRole="Teacher" ToRole="BookTest" />
+          <NavigationProperty Name="BookTest" Relationship="Self.FK_BookTest_Teacher" FromRole="Teacher" ToRole="BookTest" />
         </EntityType>
         <Association Name="FK_Autor_So_Autor">
           <End Role="So_Autor" Type="Self.So_Autor" Multiplicity="0..1" />
@@ -345,15 +295,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Book_of_Student">
+        <Association Name="FK_BookTest_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="BookTest" Type="Self.BookTest" Multiplicity="*" />
-          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID_Student" />
+            </Principal>
+            <Dependent Role="BookTest">
+              <PropertyRef Name="ID_Student" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
-        <Association Name="Book_of_Teacher">
+        <Association Name="FK_BookTest_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
           <End Role="BookTest" Type="Self.BookTest" Multiplicity="*" />
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="ID_Teacher" />
+            </Principal>
+            <Dependent Role="BookTest">
+              <PropertyRef Name="ID_Teacher" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BookBaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BookBaseEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Autor" EntityType="Self.Autor" />
           <EntitySet Name="BookTest" EntityType="Self.BookTest" />
           <EntitySet Name="Predmet" EntityType="Self.Predmet" />
@@ -373,13 +339,13 @@
             <End Role="Predmet" EntitySet="Predmet" />
             <End Role="BookTest" EntitySet="BookTest" />
           </AssociationSet>
-          <AssociationSet Name="Book_of_Student" Association="Self.Book_of_Student">
-            <End Role="BookTest" EntitySet="BookTest" />
+          <AssociationSet Name="FK_BookTest_Student" Association="Self.FK_BookTest_Student">
             <End Role="Student" EntitySet="Student" />
-          </AssociationSet>
-          <AssociationSet Name="Book_of_Teacher" Association="Self.Book_of_Teacher">
             <End Role="BookTest" EntitySet="BookTest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookTest_Teacher" Association="Self.FK_BookTest_Teacher">
             <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="BookTest" EntitySet="BookTest" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -387,7 +353,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище BookBaseModelContainer" CdmEntityContainer="BookBaseEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище BookBaseModelContainer" CdmEntityContainer="BookBaseEntities1">
           <EntitySetMapping Name="Autor">
             <EntityTypeMapping TypeName="BookBaseModel.Autor">
               <MappingFragment StoreEntitySet="Autor">
@@ -470,22 +436,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Book_of_Student" TypeName="BookBaseModel.Book_of_Student" StoreEntitySet="Book_of_Student">
-            <EndProperty Name="BookTest">
-              <ScalarProperty Name="ID" ColumnName="ID_Book" />
-            </EndProperty>
-            <EndProperty Name="Student">
-              <ScalarProperty Name="ID_Student" ColumnName="ID_Student" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="Book_of_Teacher" TypeName="BookBaseModel.Book_of_Teacher" StoreEntitySet="Book_of_Teacher">
-            <EndProperty Name="BookTest">
-              <ScalarProperty Name="ID" ColumnName="ID_Book" />
-            </EndProperty>
-            <EndProperty Name="Teacher">
-              <ScalarProperty Name="ID_Teacher" ColumnName="ID_Teacher" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
