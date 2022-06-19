@@ -14,5 +14,11 @@ namespace Book
             get;
             set;
         }
+
+        public static Frame MainFrame1
+        {
+            get;
+            set;
+        }
     }
 }

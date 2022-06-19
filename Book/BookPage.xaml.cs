@@ -23,7 +23,7 @@ namespace Book
         public BookPage()
         {
             InitializeComponent();
-            //DGridBook.ItemsSource = BookBaseEntities.GetContext().BookTests.ToList();
+            //DGridBook.ItemsSource = BookBaseEntities.GetContext().BookTest.ToList();
         }
 
 

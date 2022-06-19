@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Book"
         mc:Ignorable="d"
-        Title="Login" Height="350" Width="300" FontSize="14" Background="#8A2BE2">
+        Title="Login" Height="450" Width="350" FontSize="14" Background="#8A2BE2">
     <Border Background="#261E35" CornerRadius="20" Margin="20">
         <StackPanel Margin="20">
             <Label Content="Login" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
@@ -15,6 +15,7 @@
             <Label Content="Password" Foreground="White"/>
             <PasswordBox Name="txtPassword" Background="#17121F" Foreground="White" FontSize="18" Margin="0,5" Width="200" Height="30"/>
             <Button x:Name="btnSubmit" Click="btnSubmit_Click" Content="Login" Margin="60,10,52,10" Background="#7D43E2" Foreground="White" FontSize="18" Width="Auto"/>
+            <Button x:Name="btnSubmit1" Click="btnSubmit_Click1" Content="Login Student" Margin="60,10,52,10" Background="#7D43E2" Foreground="White" FontSize="18" Width="Auto"/>
         </StackPanel>
     </Border>
 </Window>

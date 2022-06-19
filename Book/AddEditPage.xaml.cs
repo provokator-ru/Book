@@ -21,6 +21,7 @@ namespace Book
     public partial class AddEditPage : Page
     {
         private BookTest _currentBook = new BookTest();
+
         public AddEditPage(BookTest selectedBook)
         {
             InitializeComponent();
